@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная работа №2 — Отчёт</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 30px 20px;
+            background: #f8f0f2;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            color: #3e2c33;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 40px 45px;
+            box-shadow: 0 12px 28px rgba(180, 100, 120, 0.15);
+            border: 1px solid #f3d7df;
+        }
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            color: #8f5a6b;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #eed5dd;
+            padding-bottom: 20px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 450;
+            color: #9d6b7a;
+            margin: 45px 0 20px 0;
+            border-bottom: 1px solid #eed5dd;
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #b28394;
+            margin: 35px 0 15px 0;
+        }
+        .info-item {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+        .info-item strong {
+            font-weight: 600;
+            color: #8f5a6b;
+            min-width: 60px;
+        }
+        .screens {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0 20px 0;
+        }
+        .screenshot-card {
+            background: #fefafc;
+            border-radius: 18px;
+            padding: 16px;
+            box-shadow: 0 6px 14px rgba(160, 100, 120, 0.08);
+            transition: 0.2s ease;
+            border: 1px solid #f5e0e7;
+            display: flex;
+            flex-direction: column;
+        }
+        .screenshot-card:hover {
+            box-shadow: 0 10px 22px rgba(170, 100, 125, 0.15);
+            transform: translateY(-3px);
+        }
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 2px solid #f3d7df;
+            cursor: pointer;
+            background: #faf0f3;
+            transition: 0.1s;
+        }
+        .screenshot-card img:hover {
+            border-color: #d8a7b9;
+        }
+        .screenshot-card p {
+            margin: 14px 0 4px 0;
+            font-weight: 500;
+            color: #7c5565;
+            font-size: 1rem;
+            text-align: center;
+            background: #fcf2f6;
+            padding: 8px 0;
+            border-radius: 40px;
+            border: 1px solid #f3d7df;
+        }
+        .comment {
+            background: #faf1f5;
+            border-left: 6px solid #d8a7b9;
+            border-radius: 12px 20px 20px 12px;
+            padding: 18px 24px;
+            margin: 20px 0 30px 0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #3b2c32;
+            box-shadow: inset 0 0 0 1px #f8e2ea;
+            white-space: pre-line;
+        }
+        .command {
+            background: #2a2226;
+            color: #fad5e2;
+            padding: 14px 22px;
+            border-radius: 40px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 1.1rem;
+            margin: 20px 0 12px 0;
+            border: 1px solid #b3889b;
+            box-shadow: inset 0 2px 5px #1e1519;
+            word-break: break-word;
+        }
+        .footer {
+            margin-top: 60px;
+            padding-top: 28px;
+            border-top: 2px solid #eed5dd;
+            text-align: center;
+            color: #7b5868;
+            font-size: 1.05rem;
+        }
+        .footer p {
+            margin: 6px 0;
+        }
+        ul, ol {
+            padding-left: 25px;
+            color: #4e3943;
+        }
+        li {
+            margin: 8px 0;
+        }
+        a {
+            color: #b0587a;
+            text-decoration: none;
+            border-bottom: 1px dotted #d8a7b9;
+        }
+        a:hover {
+            border-bottom: 2px solid #b0587a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Лабораторная работа №2</h1>
+
+        <!-- 1. Подготовка файлов -->
+        <h2>1. Подготовка файлов на сервере</h2>
+        
+        <h3>Создание папки и добавление архива в Git</h3>
+        <div class="command">
+            mkdir files<br>
+            cp file.tar.gz files/<br>
+            git add files/file.tar.gz<br>
+            git commit -m "Add file.tar.gz for lab2"<br>
+            git push origin main
+        </div>
+        <div class="screens">
+            <div class="screenshot-card">
+                <img src="screenshots/1.png" alt="git add" onclick="window.open(this.src)">
+                <p>Скриншот 1 — добавление file.tar.gz в Git</p>
+            </div>
+            <div class="screenshot-card">
+                <img src="screenshots/2.png" alt="git push" onclick="window.open(this.src)">
+                <p>Скриншот 2 — отправка на GitHub</p>
+            </div>
+        </div>
+
+        <h3>Клонирование и распаковка на сервере</h3>
+        <div class="command">
+            ssh u82463@kubsu-dev.ru -p 58528<br>
+            cd ~/www<br>
+            git clone https://github.com/mzaharyan/lab2.git<br>
+            cd lab2/files<br>
+            tar -xzvf file.tar.gz<br>
+            ls -la
+        </div>
+        <div class="screens">
+            <div class="screenshot-card">
+                <img src="screenshots/3.png" alt="распаковка" onclick="window.open(this.src)">
+                <p>Скриншот 3 — распаковка на сервере</p>
+            </div>
+        </div>
+        <div class="comment">
+# На сервере создана папка ~/www/lab2/files
+# Архив распакован, появились файлы image.png, index.php, README.txt
+        </div>
+
+        <!-- 2. Задания Telnet -->
+        <h2>2. Выполнение заданий через Telnet</h2>
+        <div class="comment">
+# Подключение: telnet u82463.kubsu-dev.ru 80
+# После подключения нажать Ctrl + ], затем Enter
+# Вставить запрос и нажать Enter дважды
+        </div>
+
+        <!-- Задание 1 -->
+        <h3>1. Получить главную страницу методом GET в протоколе HTTP 1.0</h3>
+        <div class="command">
+            GET / HTTP/1.0<br>
+            Host: u82463.kubsu-dev.ru<br>
+            <br>
+        </div>
+        <div class="screens">
+            <div class="screenshot-card">
+                <img src="screenshots/4.png" alt="GET HTTP/1.0" onclick="window.open(this.src)">
+                <p>Скриншот 4 — GET / HTTP/1.0</p>
+            </div>
+        </div>
+        <div class="comment">
+# Получен ответ 200 OK с главной страницей
+# В HTTP/1.0 заголовок Host не обязателен, но мы его указали
+        </div>
+
+        <!-- Задание 2 -->
+        <h3>2. Получить внутреннюю страницу методом GET в протоколе HTTP 1.1</h3>
+        <div class="command">
+            GET /lab2/files/index.php HTTP/1.1<br>
+            Host: u82463.kubsu-dev.ru<br>
+            Connection: close<br>
+            <br>
+        </div>
+        <div class="screens">
+            <div class="screenshot-card">
+                <img src="screenshots/5.png" alt="GET index.php" onclick="window.open(this.src)">
+                <p>Скриншот 5 — GET index.php</p>
+            </div>
+        </div>
+        <div class="comment">
+# Получен ответ 200 OK
+# Content-Type: text/html; charset=UTF-8
+        </div>
+
+        <!-- Задание 3 -->
+        <h3>3. Определить размер файла file.tar.gz, не скачивая его</h3>
+        <div class="command">
+            HEAD /lab2/files/file.tar.gz HTTP/1.1<br>
+            Host: u82463.kubsu-dev.ru<br>
+            Connection: close<br>
+            <br>
+        </div>
+        <div class="screens">
+            <div class="screenshot-card">
+                <img src="screenshots/6.png" alt="HEAD file.tar.gz" onclick="window.open(this.src)">
+                <p>Скриншот 6 — HEAD запрос</p>
+            </div>
+        </div>
+        <div class="comment">
+# Content-Length: 11335 байт (около 11 КБ)
+# HEAD запрос возвращает только заголовки, без тела
+        </div>
+
+        <!-- Задание 4 -->
+        <h3>4. Определить медиатип ресурса /image.png</h3>
+        <div class="command">
+            HEAD /lab2/files/image.png HTTP/1.1<br>
+            Host: u82463.kubsu-dev.ru<br>
+            Connection: close<br>
+            <br>
+        </div>
+        <div class="screens">
+            <div class="screenshot-card">
+                <img src="screenshots/7.png" alt="HEAD image.png" onclick="window.open(this.src)">
+                <p>Скриншот 7 — медиатип image.png</p>
+            </div>
+        </div>
+        <div class="comment">
+# Content-Type: image/png
+
+        </div>
+
+        <!-- Задание 5 -->
+        <h3>5. Отправить комментарий на сервер по адресу /index.php (2 балла)</h3>
+        <div class="command">
+            POST /lab2/files/index.php HTTP/1.1<br>
+            Host: u82463.kubsu-dev.ru<br>
+            Content-Type: application/x-www-form-urlencoded<br>
+            Content-Length: 21<br>
+            <br>
+            comment=hello_teacher
+        </div>
+        <div class="screens">
+            <div class="screenshot-card">
+                <img src="screenshots/8.png" alt="POST comment" onclick="window.open(this.src)">
+                <p>Скриншот 8 — POST комментарий</p>
+            </div>
+        </div>
+        <div class="comment">
+# Content-Length: 21 (comment=hello_teacher = 21 байт)
+# Обязательна пустая строка между заголовками и телом
+# В ответе: Array ( [comment] => hello_teacher ) Привет, мир!
+        </div>
+
+        <!-- Задание 6 -->
+        <h3>6. Получить первые 100 байт файла /file.tar.gz</h3>
+        <div class="command">
+            GET /lab2/files/file.tar.gz HTTP/1.1<br>
+            Host: u82463.kubsu-dev.ru<br>
+            Range: bytes=0-99<br>
+            Connection: close<br>
+            <br>
+        </div>
+        <div class="screens">
+            <div class="screenshot-card">
+                <img src="screenshots/9.png" alt="Range запрос" onclick="window.open(this.src)">
+                <p>Скриншот 9 — первые 100 байт</p>
+            </div>
+        </div>
+        <div class="comment">
+# Статус: 206 Partial Content
+# Content-Range: bytes 0-99/11335
+# В теле — бинарные данные 
+        </div>
+
+        <!-- Задание 7 -->
+        <h3>7. Определить кодировку ресурса /index.php</h3>
+        <div class="command">
+            HEAD /lab2/files/index.php HTTP/1.1<br>
+            Host: u82463.kubsu-dev.ru<br>
+            Connection: close<br>
+            <br>
+        </div>
+        <div class="screens">
+            <div class="screenshot-card">
+                <img src="screenshots/10.png" alt="HEAD index.php кодировка" onclick="window.open(this.src)">
+                <p>Скриншот 10 — кодировка</p>
+            </div>
+        </div>
+        <div class="comment">
+# Content-Type: text/html; charset=UTF-8
+# Кодировка UTF-8 — стандарт для веба
+        </div>
+
+        <!-- Итоговый список -->
+        <h2>Выполненные шаги</h2>
+        <ol style="margin-bottom: 40px;">
+            <li>Создание папки files и добавление file.tar.gz в Git</li>
+            <li>Отправка на GitHub (push)</li>
+            <li>Клонирование репозитория на сервере и распаковка архива</li>
+            <li>GET / HTTP/1.0 — главная страница</li>
+            <li>GET /lab2/files/index.php HTTP/1.1 — внутренняя страница</li>
+            <li>HEAD /lab2/files/file.tar.gz — определение размера (11335 байт)</li>
+            <li>HEAD /lab2/files/image.png — медиатип image/png</li>
+            <li>POST /lab2/files/index.php с comment=hello_teacher</li>
+            <li>GET с Range: bytes=0-99 — первые 100 байт file.tar.gz</li>
+            <li>HEAD /lab2/files/index.php — кодировка UTF-8</li>
+        </ol>
+
+        <div class="footer">
+            <p><a href="http://u82463.kubsu-dev.ru/lab2/index.html" target="_blank">http://u82463.kubsu-dev.ru/lab2/index.html</a></p>
+            <p><a href="https://github.com/mzaharyan/lab2" target="_blank">https://github.com/mzaharyan/lab2</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.screenshot-card img').forEach(img => {
+            img.addEventListener('click', function() {
+                window.open(this.src, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>
